@@ -1,4 +1,4 @@
-import django.db from models
+from django.db import models
 
 class GamerCategories(models.Model):
 

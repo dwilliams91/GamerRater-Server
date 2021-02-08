@@ -1,4 +1,4 @@
-import django.db from models
+from django.db import models
 
 class Ratings(models.Model):
     game=models.ForeignKey("Games", on_delete=models.CASCADE)
