@@ -1,0 +1,11 @@
+[
+    {
+        "model": "gamerraterapi.reviews",
+        "pk": 1,
+        "fields": {
+            "game": 1,
+            "review":"Stellar game that aged well",
+            "gamer":1
+        }
+    }
+]

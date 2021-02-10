@@ -1,0 +1,30 @@
+[
+    {
+        "model": "gamerraterapi.categories",
+        "pk": 1,
+        "fields": {
+            "category": "Strategy"
+        }
+    },
+    {
+        "model": "gamerraterapi.categories",
+        "pk": 2,
+        "fields": {
+            "category": "Dice"
+        }    
+    },
+    {
+        "model": "gamerraterapi.categories",
+        "pk": 3,
+        "fields": {
+            "category":"Card"
+        }
+    },
+    {
+        "model": "gamerraterapi.categories",
+        "pk": 4,
+        "fields": {
+            "category":"Miniature"
+        }
+    }
+]

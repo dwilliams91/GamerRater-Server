@@ -1,0 +1,15 @@
+[
+    {
+        "model": "gamerraterapi.games",
+        "pk": 1,
+        "fields": {
+            "title": "halo",
+            "description": "kill aliens",
+            "gamer":1,
+            "year": 2001,
+            "number_of_players":4,
+            "play_time":15,
+            "age_recommendation":18
+        }
+    }
+]
