@@ -17,10 +17,12 @@ from django.conf.urls import include
 from django.urls import path
 from gamerraterapi.views import register_user, login_user
 from rest_framework import routers
-from gamerraterapi.views import All_Games
+from gamerraterapi.views import All_Games, All_Ratings
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'games', All_Games, 'game')
+router.register(r'ratings', All_Ratings, 'rating')
+
 
 urlpatterns = [
     path('', include(router.urls)),
