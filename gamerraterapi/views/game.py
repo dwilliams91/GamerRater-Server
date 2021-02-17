@@ -11,7 +11,15 @@ class All_Games(ViewSet):
     def retrieve(self, request, pk=None):
         try:
             game=Games.objects.get(pk=pk)
+            # TRYING RELATED_NAME
+            # games_with_ratings=Games.objects.filter(ratings__games=game)
+            # print(games_with_ratings)
+
+            associated_ratings=Ratings.objects.filter(game=game)
+
+
             serializer=GameSerializer(game, context={'request':request})
+
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -64,10 +72,11 @@ class All_Games(ViewSet):
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model= Ratings
-        fields=("id", "rating", "game")
+        fields=("id", "rating", "game", "gamer")
 
 class GameSerializer(serializers.ModelSerializer):
+    ratings=RatingSerializer(many=True)
     class Meta:
         model= Games
-        fields=("id", "title", "gamer", "year", "description", "number_of_players", "age_recommendation", "play_time")
+        fields=("id", "title", "gamer", "year", "description", "number_of_players", "age_recommendation", "play_time", "ratings")
         depth=1

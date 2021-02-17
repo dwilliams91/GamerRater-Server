@@ -6,5 +6,6 @@
             "name": "GamerRater",
             "database": "db.sqlite3"
         }
-    ]
+    ],
+    "python.pythonPath": "/Users/davidwilliams/.local/share/virtualenvs/raterproject-LihFBCNb/bin/python"
 }
