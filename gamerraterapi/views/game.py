@@ -5,7 +5,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from gamerraterapi.models import Games, Gamers
+from gamerraterapi.models import Games, Gamers, Ratings
 
 class All_Games(ViewSet):
     def retrieve(self, request, pk=None):
@@ -19,6 +19,12 @@ class All_Games(ViewSet):
     def list(self, request):
         
         games=Games.objects.all()
+
+        # rating=Ratings.objects.get(ratings__game=games)
+
+        # rating=RatingSerializer(rating, many=True, context={'request':request})
+        # game["rating"]=rating.rating
+        
 
         serializer=GameSerializer(games, many=True, context={'request':request})
         return Response(serializer.data)
@@ -55,8 +61,13 @@ class All_Games(ViewSet):
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+class RatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Ratings
+        fields=("id", "rating", "game")
 
 class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model= Games
         fields=("id", "title", "gamer", "year", "description", "number_of_players", "age_recommendation", "play_time")
+        depth=1

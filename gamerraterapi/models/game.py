@@ -9,3 +9,4 @@ class Games(models.Model):
     number_of_players=models.IntegerField()
     play_time= models.IntegerField()
     age_recommendation= models.IntegerField()
+
